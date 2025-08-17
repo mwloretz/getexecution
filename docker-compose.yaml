@@ -1,7 +1,7 @@
 
 services:
   executionweb:
-    image: mwloretz/foundersupport-web-1:v24
+    image: mwloretz/foundersupport-web-1:v25
     container_name: getexecution
     networks:
       - traefik-network
