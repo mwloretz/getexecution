@@ -7,11 +7,16 @@ services:
       - traefik-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.executionweb.rule=Host(`getexecution.com`)"
       - "traefik.http.routers.executionweb.entrypoints=https"
       - "traefik.http.routers.executionweb.tls=true"
       - "traefik.http.routers.executionweb.tls.certresolver=cloudflare"
+
+      - "traefik.http.routers.executionweb-1.rule=Host(`getexecution.com`)"
+      - "traefik.http.routers.executionweb-1.service=executionweb"
+      - "traefik.http.routers.executionweb-2.rule=Host(`www.getexecution.com`)"
+      - "traefik.http.routers.executionweb-2.service=executionweb"
       - "traefik.http.services.executionweb.loadbalancer.server.port=80"
+
 
 networks:
   traefik-network:
